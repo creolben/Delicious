@@ -30,7 +30,7 @@ class HomeController extends Controller
     {
           $c = new \App\myCalendar;
           $calendar =  $c->create();
-        return view('home', compact('calendar'));
+          return view('home', compact('calendar'));
       }
     
   Public function search(Request $request){
@@ -53,8 +53,7 @@ class HomeController extends Controller
     $searchValues = 'chicken';
   }
    $base = rawurlencode("GET")."&";
-    $base .= "http%3A%2F%2Fplatform.fatsecret.com%2Frest%2Fserver.api&";
-
+   $base .= "http%3A%2F%2Fplatform.fatsecret.com%2Frest%2Fserver.api&";
     //sort params by abc....necessary to build a correct unique signature
     $params = "method=recipes.search&";
     $params .= "oauth_consumer_key=bc0b325e7002466381072801eb397a2a&"; // ur consumer key
@@ -62,41 +61,26 @@ class HomeController extends Controller
     $params .= "oauth_signature_method=HMAC-SHA1&";
     $params .= "oauth_timestamp=".time()."&";
     $params .= "oauth_version=1.0&";
-    
     $params .= "search_expression=".urlencode($searchValues);
     $params2 = rawurlencode($params);
-    //$params2 = rawurlencode($params);
     $base .= $params2;
-
-
     //encrypt it!
     $sig= base64_encode(hash_hmac('sha1', $base, "c241b5e51c644dc69073ce7f9da45d7c&", true)); // replace xxx with Consumer Secret
-
      $listOfRecipes = array();
     //now get the search results and write them down
     $url = "http://platform.fatsecret.com/rest/server.api?".$params."&oauth_signature=".rawurlencode($sig);
-
     $food_feed = file_get_contents($url);
     $xml = simplexml_load_string($food_feed, "SimpleXMLElement", LIBXML_NOCDATA);
     $json = json_encode($xml);
     $jfo = json_decode($json);
     $listOfRecipes = $jfo->recipe;
-    //return response()->json(['return' => $test[1]->recipe_id]);
-   
-  // $search = "http://food2fork.com/api/search?key=f1a5ea67b861428fa53fd5ee48e46386&q=";
-  // $search .= $searchValues;
-  // $jsonSearchContent = file_get_contents($search);
-  // $jfo = json_decode($jsonSearchContent);
-  // $listOfRecipes = $jfo->recipes;
-
-  $listOfRecipesId = array();
-  $listOfRecipesTitle = array();
-  $listOfRecipesImage = array();
-  $listOfsource_url = array();
-  $listOfdescription_url = array();
-  $max = sizeof($listOfRecipes);
-
-    
+    // set up arrays to hold api returns
+    $listOfRecipesId = array();
+    $listOfRecipesTitle = array();
+    $listOfRecipesImage = array();
+    $listOfsource_url = array();
+    $listOfdescription_url = array();
+    $max = sizeof($listOfRecipes);
     for($i=0; $i<$max ;$i++)
     {
      
@@ -106,7 +90,7 @@ class HomeController extends Controller
       if(isset($listOfRecipes[$i]->recipe_image)) {
         array_push($listOfRecipesImage, $listOfRecipes[$i]->recipe_image);
       }else{
-        
+         array_push($listOfRecipesImage, "http://static.food2fork.com/Buffalo2BChicken2BChowder2B5002B0075c131caa8.jpg"); 
       }
 
       
@@ -115,7 +99,7 @@ class HomeController extends Controller
       array_push($listOfdescription_url , $listOfRecipes[$i]->recipe_description);
      }
      // return response()->json(['return' =>$listOfRecipesId]);
-     return response()->json(['listOfId' => $listOfRecipesId,'listOfTitle' => $listOfRecipesTitle,'listOfUrls' => $listOfsource_url, 'ListOfDescription' => $listOfdescription_url]);
+     return response()->json(['listOfId' => $listOfRecipesId,'listOfTitle' => $listOfRecipesTitle,'listOfUrls' => $listOfsource_url, 'ListOfDescription' => $listOfdescription_url,'listOfImages' => $listOfRecipesImage]);
     
     
     //return view('main_page', compact('calendar'));

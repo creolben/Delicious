@@ -12,7 +12,7 @@ body {
 }
 /* Set black background color, white text and some padding */
     .footer {
-      background-color: #555;
+     
       color: white;
       padding: 15px;
     }
@@ -278,12 +278,12 @@ overflow-y: scroll;
 }
 .draggable-box{
     
-    
+    background-color: white;
     text-align: center;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
     float: left;
-   width: 33.333333%;
+    width: 33.333333%;
     
 }
 
@@ -291,10 +291,10 @@ overflow-y: scroll;
 #recipe_list > div {
   -webkit-box-shadow: 0 4px 15px -5px #555;
   box-shadow: 0 4px 15px -5px #555;
-  width: 400px;
-  height: 180px;
+  width: 200px;
+  height: 170px;
   margin-top: 25px;
-  
+  background-color: white;
   margin-right: auto;
   position: relative;
  
@@ -403,12 +403,31 @@ overflow-y: scroll;
     margin-top: 200px;
     margin-bottom: 20px;
     border-color: white;
-    background-color: black;
-    
+    background-color: rgb(21, 8, 2);
+    filter: alpha(Opacity=90);
+    opacity: 0.9;
     border-radius: 4px;
     
 }
 
 .panel .control-label {
   color: white;
+}
+.navbar-nav > li > a {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    line-height: 40px;
+    color: #428bca;
+    font-size: 20px;
+
+}
+.navbar > .container .navbar-brand {
+    color: #428bca;
+    font-size: 40px;
+}
+.panel-default > .panel-heading {
+    font-size: 20px;
+    border-color: #dddddd;
+    text-align: center;
 }
