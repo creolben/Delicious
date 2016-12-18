@@ -7,14 +7,16 @@ body {
   vertical-align: baseline;
   background: url(/img/signin-bg.jpg) repeat; 
   background-size: 100%;
-  margin: 0 auto;
+  margin-left: 15px;
+  margin-right: auto;
   padding: 0;
+  width: 1266px;
 }
 /* Set black background color, white text and some padding */
     .footer {
      
       color: white;
-      padding: 15px;
+      
     }
 
 /* Titles */
@@ -170,18 +172,22 @@ a:after {
 	color: white
 }
 
-#calendar {
-  width: 70%;
+/*#calendar {
+  width: 50%;
 
+}*/
+#app-navbar-collapse.collapse.navbar-collapse{
+  width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 .calendar-side{
   margin-left: 25px;
 }
 /* ------- Agenda View ------- */
 #agendaView > table{
     width: 100%;
-    min-height: 500px;
+    min-height: 300px;
     background: #FFF;
 
 }
@@ -265,17 +271,7 @@ a:after {
 #columns:hover .pin:not(:hover) {
 	opacity: 0.4;
 }
-.recipe-panel{
-  width: 100%;
-  height: 550px;
- text-align: center;
- margin-left: auto;
- margin-right: auto;
- position:relative;
-overflow-y: scroll;
 
- 
-}
 .draggable-box{
     
     background-color: white;
@@ -284,6 +280,7 @@ overflow-y: scroll;
     margin-right: 20px;
     float: left;
     width: 33.333333%;
+    height: 33%;
     
 }
 
@@ -291,8 +288,8 @@ overflow-y: scroll;
 #recipe_list > div {
   -webkit-box-shadow: 0 4px 15px -5px #555;
   box-shadow: 0 4px 15px -5px #555;
-  width: 200px;
-  height: 170px;
+  width: 170px;
+  height: 140px;
   margin-top: 25px;
   background-color: white;
   margin-right: auto;
@@ -302,7 +299,6 @@ overflow-y: scroll;
 
 #recipe_list > div img {
   padding: 0px;
-  display: block;
   width: 100%;
   height: 100px;
 }
@@ -312,7 +308,7 @@ overflow-y: scroll;
 	}
 #left_panel{
  	 position: relative;
-   float: left;
+   float: right;
     height: 100%;
     margin-top: 30px;
     margin-left: 10px;
@@ -325,10 +321,9 @@ overflow-y: scroll;
 .cell-dropped{
     background-color:red;
 }
-.ui-draggable-helper {
-    height: 20px;
-    width: 160px;
-    border: 1px solid Black;
+.ui-helper {
+    font-size: 25%;
+    border: 2px solid yellow;
     text-align: center;
     background-color:fff;
 }
@@ -340,24 +335,46 @@ overflow-y: scroll;
    word-wrap: break-word;      /* IE */
 }
 #calendar-frame{
-  padding-left: 5px;
+  padding-left: 1px;
   padding-right: 5px;
+  margin-left: 0px;
   background-color:rgba(0, 0, 0, 0.5);
-  width:100%;
- 
-
+  width:500px;
+  z-index:1;
+  float: left;
+  position:relative;
+  margin-top: 50px;
 }
-.calendar-frame-week{
-  
+
+
+/*#calendar-frame .visible{
+  float: left;
+    position:absolute;
+    left:500px;
+}*/
+.recipe-panel{
+  width: 50%;
+  height: 600px;
+ text-align: center;
  
+ margin-right: 5px;
+overflow-y: scroll;
+font-size: right; 
+ z-index:1;
+}
+
+.calendar-frame-week{
   background-color:rgba(0, 0, 0, 0.5);
   width:100%;
   height: 50px;
 
 }
 #main_container{
-    width: 1000px;
-    position: relative;
+    padding-top: 50px;
+    padding-right: auto;
+    padding-left: auto;
+    width: 1240px;
+    position: absolute;
 }
 #form{
   display: block;
@@ -371,6 +388,7 @@ overflow-y: scroll;
   margin-right: auto;
 
 }
+
 .span3 img{
   width: 50%;
   border: none;
@@ -385,9 +403,10 @@ overflow-y: scroll;
   width: 33.333333%;
 }
 .ui-helper {
-    width: 20% !important;
-    height: 5% !important;
+    width: 70px !important;
+    height: 5px;
     color: white;
+    font-size: 60%;
 }
 .fc-bg table {
   height: 25%; /* strech bg to bottom edge */
@@ -441,4 +460,8 @@ input.input-group-btn.btn.btn-primary.col-md-4{
 .col-md-8{
   width: 66.6666666667%;
 height: 35px;
+}
+#cal-recipe{
+  margin-left: 80px;
+  width: 100%;
 }

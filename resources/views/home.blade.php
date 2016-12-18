@@ -27,6 +27,28 @@
                 }
             });
             </script>
+                <script>
+                $(document).ready(function(){
+                
+            $('#viewcal').click(function(){
+            //$('#calendar-frame').hide();
+
+            // r = parseInt($('#cal-recipe').css('right'), 10);
+
+            // $('#cal-recipe')
+
+            //     .animate(
+            //       { 
+            //         right: r ? -600 : 10
+            //       },1000
+                
+            //     );
+            });
+});
+
+            </script>
+            
+
         </head>
         <body>
             <nav class="navbar navbar-nav navbar-static-top">
@@ -81,46 +103,38 @@
                 </div>
             </nav>
 
-            <div class="container text-center" id="main_container">
-              <div class="row content">
-                <div class="container text-centered" id="left_panel">
-               
-                    <div class ="row col-md-offset-4 col-md-4">
-                     
-
-                        {!! Form::open(['url' => 'home/search'],['class' => 'form-inline']) !!}
-                        {{ csrf_field() }}
-                         {!! Form::submit('Search', ['class' => 'btn btn-primary col-md-4']) !!} 
-                        {!! Form::text('recipe', null, ['class' => 'span2 col-md-8']) !!}
-                    
+            <div class="container text-center col-md-12" id="main_container">
+                <div class="row col-md-offset-4 col-md-6">  
                         
-                            
-                       
-                        {!! Form::close() !!}
-                     
-                       
-                    </div>     
-                    </div>
-                    </div>
-                    <div class ="row">
-                         <a id="viewcal"><img src="img/Calendar.png" id="viewcal">
-                    </div>
-                    <br><br>
-                     <div class="text-left" id=calendar-frame>
-                  <br>
-                  {!! $calendar->calendar() !!}
-                  {!! $calendar->script() !!}
-                  <hr>
-
+                            {!! Form::open(['url' => 'home/search'],['class' => 'form-inline']) !!}
+                            {{ csrf_field() }}
+                             {!! Form::submit('Search', ['class' => 'btn btn-primary col-md-4']) !!} 
+                            {!! Form::text('recipe', null, ['class' => 'span2 col-md-8']) !!}
+                            {!! Form::close() !!}  
                 </div>
-                    <div class ="row">
-                      <div class="recipe-panel">
-                        <div id ="recipe_list" class="container-fluid">
-                     
-                            <!-- These are our grid blocks -->
+               <!--  <div class="col-md-offset-4">
+               
+                     <a id="viewcal"><img src="img/Calendar.png"></a>
+               
+                <br><br>
+                </div> -->
+                <br><br>
+                <div class="row container" id ="cal-recipe">
+                   
+                    <!-- calendar frame -->
+                        <div id="calendar-frame" class="col-md-offset-4">
+                            <br>
+                            {!! $calendar->calendar() !!}
+                            {!! $calendar->script() !!}
+                            <hr>
+                        </div>   
+                        <div class="container recipe-panel col-md-6">
+                            <div id ="recipe_list" class="container-fluid">
+                         
+                                <!-- These are our grid blocks -->
+                            </div>
                         </div>
-                      </div>
-                    </div>
+               </div>
                 </div>
                 
             </div>
@@ -128,7 +142,7 @@
         </div>
 
         <footer class="footer centered">
-            <p>Copyright 2016</p>
+            <p></p>
             <!-- Scripts -->
 
             <script>
@@ -166,16 +180,16 @@
                                 var eventObject = {
                                 title: $.trim($(this).text()) // use the element's text as the event title
                                 };
-                                $(this).css 
+                                
                                 // store the Event Object in the DOM element so we can get to it later
                                 $(this).data('eventObject', eventObject);
                             },
                             start: function(event, ui) {
                                 $('.recipe-panel').css("overflow", "visible");
-                                $('#calendar-frame').show();
+                                
                                 $(ui.helper).addClass("ui-helper");
                                 return $(this)
-                                    .clone().appendTo('#main_container').css({'zIndex': 5});
+                                    
                             },
                             stop: function() {
                                 $('.recipe-panel').css("overflow", "scroll");
@@ -197,22 +211,7 @@
                 });
             </script>
 
-            <script>
-            $('#login-link').click(function(){
-            $('#calendar-frame').hide();
-
-            // r = parseInt($('#main_container').css('right'), 10);
-            // $('#main_container')
-
-            //     .animate(
-            //       { 
-            //         right: r ? -500 : 10
-            //       },1000
-                
-            //     );
-            });
-
-            </script>
+            
             <script>
             $('#contact-btn').click(function(){
             $('#calendar-frame').slideDown( "slow", function() {
@@ -222,10 +221,10 @@
             });
 
             </script>         
-            <script>$("#viewcal").click(function() {
-            $('#calendar-frame').slideToggle();
-            });
-            </script>
+            <!-- <script>$("#viewcal").click(function() {
+            // $('#calendar-frame').slideToggle();
+            // });
+            </script> -->
             <script>
             $("#somediv").click(function() {
             opendialog("http://www.closetcooking.com/2011/11/buffalo-chicken-chowder.html/");

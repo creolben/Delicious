@@ -118,7 +118,7 @@ class HomeController extends Controller
          $e->full_day = true;
          $e->start_time = $request->start_time;
          $e->end_time = $request->end_time;
-         $e->user_id = 11;
+         $e->user_id = $id;
          $e->save();
          echo $id;
          $events = \App\User::find($id)->events;
