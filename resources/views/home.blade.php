@@ -1,6 +1,7 @@
 <!DOCTYPE html>
     <html lang="en">
         <head>
+            <meta name="csrf-token" content="{{ csrf_token() }}" />
             <title>Delicious</title>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +20,13 @@
             <!-- Styles -->
             <link href="/css/app.css" rel="stylesheet">
             <script src='js/jquery.pinto.js'></script>
-            <meta name="csrf-token" content="{{ csrf_token() }}" />
+            <script type="text/javascript">
+                $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            </script>
         </head>
         <body>
             <nav class="navbar navbar-nav navbar-static-top">
@@ -77,24 +84,20 @@
             <div class="container text-center" id="main_container">
               <div class="row content">
                 <div class="container text-centered" id="left_panel">
-                <div class="input-prepend">
-    <button type="submit" class="btn">Search</button>
-    <input type="text" class="span2 search-query">
-  </div>
-                    <div class ="row col-md-offset-4">
-                      <div id="form" class= "col-md-6 ">
+               
+                    <div class ="row col-md-offset-4 col-md-4">
+                     
 
-                        {{!! Form::open(['url' => 'home/search'],['class' => 'iform-inline  ']) !!}
-                          {{ csrf_field() }}
-                          
-                            {!! Form::label('title', 'Recipe Title') !!}
-                            {!! Form::text('recipe', null, ['class' => 'form-control span2 search-query']) !!}
-                      
+                        {!! Form::open(['url' => 'home/search'],['class' => 'form-inline']) !!}
+                        {{ csrf_field() }}
+                         {!! Form::submit('Search', ['class' => 'btn btn-primary col-md-4']) !!} 
+                        {!! Form::text('recipe', null, ['class' => 'span2 col-md-8']) !!}
+                    
                         
-                            {!! Form::submit('Search', ['class' => 'btn btn-primary']) !!}
+                            
                        
                         {!! Form::close() !!}
-                      </div>
+                     
                        
                     </div>     
                     </div>

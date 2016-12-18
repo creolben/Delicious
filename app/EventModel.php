@@ -62,4 +62,8 @@ class EventModel extends Eloquent implements \MaddHatter\LaravelFullcalendar\Ide
     public function eventClick(){
       
     }
+     public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

@@ -1,14 +1,16 @@
 <?php 
 namespace App;
+use Illuminate\Support\Facades\Auth;
+
 class myCalendar{
   	public function create()
 	    {
-
-	       $events = \App\EventModel::all(); //EventModel implements MaddHatter\LaravelFullcalendar\Event
+	       $id = Auth::id();
+	       $events = \App\User::find($id)->events; //EventModel implements MaddHatter\LaravelFullcalendar\Event
 	       $calendar = \Calendar::addEvents($events, [ //set custom color fo this event
-	      'backgroundColor' => '#800','textColor'=> 'black','source'=>'/events/feeds'
+	      'backgroundColor' => '#800','textColor'=> 'green'
 	      ])->setOptions([ //set fullcalendar options
-	       'firstDay' => 1, 'droppable'=> true,'editable'=> true, 'dropAccept'=>'.draggable-box','rendering' => 'background',
+	       'firstDay' => 1, 'droppable'=> true,'editable'=> true, 'dropAccept'=>'.draggable-box','rendering' => 'background'
 	      ])->setCallbacks([ //set fullcalendar callback options (will not be JSON encoded)
 	      
 	      'eventAfterAllRender' => 'function() {
@@ -63,11 +65,12 @@ class myCalendar{
 				success: function(response){
 			    alert(image);
 			    //$("div[id^=\'calendar\']").fullCalendar(\'removeEvents\');
-			    // $("div[id^=\'calendar\']").fullCalendar( \'refetchEvents\' )
+			     $("div[id^=\'calendar\']").fullCalendar( \'refetchEvents\' )
 			   	//$("div[id^=\'calendar\']").fullCalendar(\'addEventSource\', response.events);         
                 $("div[id^=\'calendar\']").fullCalendar(\'rerenderEvents\' );
 			    },
 			    error: function(e){ 
+			    	alert(\'failed\' + e);
 			    }
 				});
 			}
