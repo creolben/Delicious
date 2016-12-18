@@ -108,7 +108,7 @@
                         
                             {!! Form::open(['url' => 'home/search'],['class' => 'form-inline']) !!}
                             {{ csrf_field() }}
-                             {!! Form::submit('Search', ['class' => 'btn btn-primary col-md-4']) !!} 
+                             {!! Form::submit('Search', ['class' => 'btn btn-primary col-md-4', 'id' => 'search-btn']) !!} 
                             {!! Form::text('recipe', null, ['class' => 'span2 col-md-8']) !!}
                             {!! Form::close() !!}  
                 </div>
@@ -150,6 +150,7 @@
                 $("form").on('submit', function (e) {
                 e.preventDefault();
                 var recipe = $("input[name='recipe']").val();
+                $('.draggable-box').remove();
                 $.ajax({
                     type: "POST",
                     url:'/home/search',
@@ -173,30 +174,31 @@
                             $('#' + recipe_ids[i]).on('click', function() {
                             var href = $(this).children('a').attr('href');
                             opendialog(href + '/');
-                             $('div[role="dialog"]').css({'z-index':'999','left':'300px'});
                             return false; // prevent default action and stop event propagation
                           
                             //opendialog(""+ href + "/");
                             
                             function opendialog(page) {
-            var $dialog = $('#viewcal')
-            .html('<iframe style="border: 0px; " src="' + page + '" width="800px" height="800px" z-index: "999"></iframe>')
-            .dialog({
-            title: "Page",
-            autoOpen: false,
-            dialogClass: 'dialog_fixed,ui-widget-header',
-            modal: true,
-            height: 400,
-            minWidth: 400,
-            minHeight: 400,
-            draggable:true,
+                                var $dialog = $('#viewcal')
+                                .html('<iframe style="border: 0px; " src="' + page + '" width="800px" height="800px" z-index: "999"></iframe>')
+                                .dialog({
+                                title: "Page",
+                                autoOpen: false,
+                                dialogClass: 'dialog_fixed,ui-widget-header',
+                                modal: true,
+                                height: 400,
+                                minWidth: 400,
+                                minHeight: 400,
+                                draggable:true,
 
-            id: 'recipe-details',
-            /*close: function () { $(this).remove(); },*/
-            buttons: { "Ok": function () { $(this).dialog("close"); } }
-            });   
-            $dialog.dialog('open');
-            } 
+                                id: 'recipe-details',
+                                /*close: function () { $(this).remove(); },*/
+                                buttons: { "Ok": function () { $(this).dialog("close"); } }
+                                });   
+                                $dialog.dialog('open');
+                                 $('div[role="dialog"]').css({'z-index':'999','left':'300px'});
+                                
+                            } 
                             //window.open(link); 
                             });
                             $('#' + recipe_ids[i]).draggable({
@@ -251,34 +253,12 @@
             // $('#calendar-frame').slideToggle();
             // });
             </script> -->
-            <script>
-            $("#viewcal").click(function() {
-            opendialog("http://www.fatsecret.com/recipes/golubtsy/Default.aspx/");
-            $('div[role="dialog"]').css({'z-index':'999','left':'300px'});
-            
-            });
+            <!-- <script>
+                 $('#search-btn').click (function(){
+                   //document.location.reload();
+               });
 
-            function opendialog(page) {
-            var $dialog = $('#viewcal')
-            .html('<iframe style="border: 0px; " src="' + page + '" width="800px" height="800px" z-index: "999"></iframe>')
-            .dialog({
-            title: "Page",
-            autoOpen: false,
-            dialogClass: 'dialog_fixed,ui-widget-header',
-            modal: true,
-            height: 400,
-            minWidth: 400,
-            minHeight: 400,
-            draggable:true,
-
-            id: 'recipe-details',
-            /*close: function () { $(this).remove(); },*/
-            buttons: { "Ok": function () { $(this).dialog("close"); } }
-            });   
-            $dialog.dialog('open');
-            } 
-
-            </script>
+            </script> -->
          
         </footer>
 

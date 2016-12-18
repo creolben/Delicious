@@ -44,8 +44,8 @@ class HomeController extends Controller
 
       $myInput = $request->input('recipe');
     
-  //    $c = new \App\myCalendar;
-  //    $calendar = $c->create();
+     // $c = new \App\myCalendar;
+     // $calendar = $c->create();
      if ($request->has('recipe'))
       {
   //
