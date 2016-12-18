@@ -112,12 +112,13 @@
                             {!! Form::text('recipe', null, ['class' => 'span2 col-md-8']) !!}
                             {!! Form::close() !!}  
                 </div>
-               <!--  <div class="col-md-offset-4">
+                <div class="col-md-offset-4">
                
                      <a id="viewcal"><img src="img/Calendar.png"></a>
-               
+                     <div id="details">
+                    </div>
                 <br><br>
-                </div> -->
+                </div>
                 <br><br>
                 <div class="row container" id ="cal-recipe">
                    
@@ -168,9 +169,34 @@
                             //alert(recipe_images[i]);
                             var link = recipe_urls[i];
                             // recipe_panel.append("<div class=\'draggable-box span3\'" + "id =" + recipe_ids[i] + " data-event=\'title\' : \'myevent\'" + "><img src=><h3>" + recipe_titles[i] + "</h3></div>");
-                            recipe_panel.append("<div class=\'draggable-box span3\'" + "id =" + recipe_ids[i] + " data-event=\'title\' : \'myevent\'" + "><img src=" + recipe_images[i] + "><h3>" + recipe_titles[i] + "</h3></a></div>");
+                            recipe_panel.append("<div class=\'draggable-box span3\'" + "id =" + recipe_ids[i] + " data-event=\'title\' : \'myevent\' 'url' : ><a href=" + recipe_urls[i] + "><img src=" + recipe_images[i] + "><h3>" + recipe_titles[i] + "</h3></a></div>");
                             $('#' + recipe_ids[i]).on('click', function() {
-                            opendialog(""+ link + "/");
+                            var href = $(this).children('a').attr('href');
+                            opendialog(href + '/');
+                             $('div[role="dialog"]').css({'z-index':'999','left':'300px'});
+                            return false; // prevent default action and stop event propagation
+                          
+                            //opendialog(""+ href + "/");
+                            
+                            function opendialog(page) {
+            var $dialog = $('#viewcal')
+            .html('<iframe style="border: 0px; " src="' + page + '" width="800px" height="800px" z-index: "999"></iframe>')
+            .dialog({
+            title: "Page",
+            autoOpen: false,
+            dialogClass: 'dialog_fixed,ui-widget-header',
+            modal: true,
+            height: 400,
+            minWidth: 400,
+            minHeight: 400,
+            draggable:true,
+
+            id: 'recipe-details',
+            /*close: function () { $(this).remove(); },*/
+            buttons: { "Ok": function () { $(this).dialog("close"); } }
+            });   
+            $dialog.dialog('open');
+            } 
                             //window.open(link); 
                             });
                             $('#' + recipe_ids[i]).draggable({
@@ -226,25 +252,29 @@
             // });
             </script> -->
             <script>
-            $("#somediv").click(function() {
-            opendialog("http://www.closetcooking.com/2011/11/buffalo-chicken-chowder.html/");
+            $("#viewcal").click(function() {
+            opendialog("http://www.fatsecret.com/recipes/golubtsy/Default.aspx/");
+            $('div[role="dialog"]').css({'z-index':'999','left':'300px'});
+            
             });
 
             function opendialog(page) {
-            var $dialog = $('#somediv')
-            .html('<iframe style="border: 0px; " src="' + page + '" width="100%" height="100%"></iframe>')
+            var $dialog = $('#viewcal')
+            .html('<iframe style="border: 0px; " src="' + page + '" width="800px" height="800px" z-index: "999"></iframe>')
             .dialog({
             title: "Page",
             autoOpen: false,
             dialogClass: 'dialog_fixed,ui-widget-header',
             modal: true,
-            height: 500,
+            height: 400,
             minWidth: 400,
             minHeight: 400,
             draggable:true,
+
+            id: 'recipe-details',
             /*close: function () { $(this).remove(); },*/
             buttons: { "Ok": function () { $(this).dialog("close"); } }
-            });
+            });   
             $dialog.dialog('open');
             } 
 
