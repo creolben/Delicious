@@ -10,3 +10,5 @@ I extended the full calendar class from the plugin.
 [![P4 Screencast]!](https://github.com/maddhatter/laravel-fullcalendar) 
 ##Details
 I started this project with the food2fork API and two day before the dealine, they went dark. so I had to look for a new API and made chage to my scripts. i have features such as the shoping list wich i did not have enough time to complete.
+##Planning Doc
+[![Planning Doc]!](https://docs.google.com/document/d/1i-CzmnNtNoKk_04xyNt_PyRBHr-q9ofFcEVIX8ItPrI/edit#heading=h.9jqtzjpjb2cj) 
