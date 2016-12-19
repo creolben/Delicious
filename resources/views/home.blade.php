@@ -103,27 +103,21 @@
                 </div>
             </nav>
 
-            <div class="container text-center col-md-12" id="main_container">
+            <div class="container-fluid text-center" id="main_container">
                 <div class="row col-md-offset-4 col-md-6">  
                         
                             {!! Form::open(['url' => 'home/search'],['class' => 'form-inline']) !!}
                             {{ csrf_field() }}
                              {!! Form::submit('Search', ['class' => 'btn btn-primary col-md-4', 'id' => 'search-btn']) !!} 
-                            {!! Form::text('recipe', null, ['class' => 'span2 col-md-8']) !!}
+                            {!! Form::text('recipe', null, ['class' => 'span2 col-md-6']) !!}
                             {!! Form::close() !!}  
                 </div>
-                <div class="col-md-offset-4">
                
-                     <a id="viewcal"><img src="img/Calendar.png"></a>
-                     <div id="details">
-                    </div>
-                <br><br>
-                </div>
                 <br><br>
                 <div class="row container" id ="cal-recipe">
                    
                     <!-- calendar frame -->
-                        <div id="calendar-frame" class="col-md-offset-4">
+                        <div id="calendar-frame" class="col-md-offset-6">
                             <br>
                             {!! $calendar->calendar() !!}
                             {!! $calendar->script() !!}
@@ -174,15 +168,16 @@
                             $('#' + recipe_ids[i]).on('click', function() {
                             var href = $(this).children('a').attr('href');
                             opendialog(href + '/');
+                            $('div[role="dialog"]').css({'z-index':'999','left':'300px'});
                             return false; // prevent default action and stop event propagation
                           
                             //opendialog(""+ href + "/");
                             
                             function opendialog(page) {
-                                var $dialog = $('#viewcal')
+                                var $dialog = $('.footer')
                                 .html('<iframe style="border: 0px; " src="' + page + '" width="800px" height="800px" z-index: "999"></iframe>')
                                 .dialog({
-                                title: "Page",
+                                title: "Recipe details",
                                 autoOpen: false,
                                 dialogClass: 'dialog_fixed,ui-widget-header',
                                 modal: true,
@@ -195,8 +190,8 @@
                                 /*close: function () { $(this).remove(); },*/
                                 buttons: { "Ok": function () { $(this).dialog("close"); } }
                                 });   
-                                $dialog.dialog('open');
-                                 $('div[role="dialog"]').css({'z-index':'999','left':'300px'});
+                               $dialog.dialog('open');
+                                 
                                 
                             } 
                             //window.open(link); 

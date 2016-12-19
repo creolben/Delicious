@@ -7,10 +7,10 @@ body {
   vertical-align: baseline;
   background: url(/img/signin-bg.jpg) repeat; 
   background-size: 100%;
-  margin-left: 15px;
+  margin-left: auto;
   margin-right: auto;
   padding: 0;
-  width: 1266px;
+  width: 100%;
 }
 /* Set black background color, white text and some padding */
     .footer {
@@ -178,7 +178,7 @@ a:after {
 }*/
 #app-navbar-collapse.collapse.navbar-collapse{
   width: 1170px;
-  margin-left: auto;
+  margin-left: 80px;
   margin-right: auto;
 }
 .calendar-side{
@@ -339,7 +339,7 @@ a:after {
   padding-right: 5px;
   margin-left: 0px;
   background-color:rgba(0, 0, 0, 0.5);
-  width:500px;
+  width:50%;
   z-index:1;
   float: left;
   position:relative;
@@ -354,13 +354,14 @@ a:after {
 }*/
 .recipe-panel{
   width: 50%;
-  height: 600px;
+  height: 800px;
  text-align: center;
- 
+ float: right;
  margin-right: 5px;
 overflow-y: scroll;
 font-size: right; 
  z-index:1;
+ background-color: transparent;
 }
 
 .calendar-frame-week{
@@ -372,8 +373,9 @@ font-size: right;
 #main_container{
     padding-top: 50px;
     padding-right: auto;
-    padding-left: auto;
-    width: 1240px;
+    margin-left:auto;
+    margin-right: auto;
+    width: 100%;
     position: absolute;
 }
 #form{
@@ -461,17 +463,13 @@ input.input-group-btn.btn.btn-primary.col-md-4{
   width: 66.6666666667%;
 height: 35px;
 }
-#cal-recipe{
-  margin-top: 50px;
-  margin-left: 80px;
-  width: 100%;
-
+#cal-recipe {
+    margin-top: 50px;
+    margin-left: 30px;
+    margin-right: 10px;
+    width: 100%;
 }
-#recipe-details {
-    position: relative;
-    height: auto;
-    width: 800px;
-    top: -11px;
-    left: 494.5px;
-    z-index: 999;
+#search-btn {
+    width: 80px;
+    height: 28px;
 }
