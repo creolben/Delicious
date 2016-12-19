@@ -233,7 +233,7 @@
                             },
                             stop: function() {
                                 $('.recipe-panel').css("overflow", "scroll");
-                                alert($(this).text());
+                                //alert($(this).text());
                             },
                             revert: true
                             });            
