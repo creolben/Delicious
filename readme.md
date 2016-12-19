@@ -5,3 +5,8 @@ Delicious is an application to plan you meal by searching recipes online and sav
 [![FullCalendar]!](https://fullcalendar.io) 
 ##packages
 [![laravel-fullcalendar]!](https://github.com/maddhatter/laravel-fullcalendar) 
+##screencast demo
+[![P4 Screencast]!](https://github.com/maddhatter/laravel-fullcalendar) 
+I extended the full calendar class from the plugin.
+**Details
+I started this project 
