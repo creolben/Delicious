@@ -112,6 +112,9 @@ class HomeController extends Controller
     {
       // Check if user is logged in
       if (Auth::check()) {
+
+     // $c = new \App\myCalendar;
+     // $calendar = $c->create();
          $id = Auth::id();
          $e =  new \App\EventModel;
          $e->title = $request->title;
@@ -120,9 +123,11 @@ class HomeController extends Controller
          $e->end_time = $request->end_time;
          $e->user_id = $id;
          $e->save();
-         echo $id;
-         $events = \App\User::find($id)->events;
-         return response()->json(['events' => $id]);
+         $event = \App\EventModel::find($id)->get();
+        //  $calendar::addEvent($event,[ //set custom color fo this event
+        // 'backgroundColor' => '#800','textColor'=> 'green'
+        // ]);
+         return response()->json(['event' => $event]);
       }
       
     }

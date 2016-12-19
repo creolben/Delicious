@@ -66,4 +66,9 @@ class EventModel extends Eloquent implements \MaddHatter\LaravelFullcalendar\Ide
     {
         return $this->belongsTo('App\User');
     }
+    public function addEvent($event, array $customAttributes = [])
+    {
+        $this->eventCollection->push($event, $customAttributes);
+        return $this;
+    }
 }
