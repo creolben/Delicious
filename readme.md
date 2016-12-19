@@ -14,5 +14,5 @@ I started this project with the food2fork API and two day before the dealine, th
 [![Planning Doc]!](https://docs.google.com/document/d/1i-CzmnNtNoKk_04xyNt_PyRBHr-q9ofFcEVIX8ItPrI/edit#heading=h.9jqtzjpjb2cj) 
 
 ##CRUD operations
-*Create: After performing a search, the result recipe boxes can be dragged on the calendar and the recipe will be saved in the database.
-*Read:
+* Create: After performing a search, the result recipe boxes can be dragged on the calendar and the recipe will be saved in the database.
+* Read:
