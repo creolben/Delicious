@@ -77,10 +77,10 @@ class myCalendar{
 				},
 				success: function(response){
 			    
-			    //$("div[id^=\'calendar\']").fullCalendar(\'removeEvents\');
-			     $("div[id^=\'calendar\']").fullCalendar( \'refetchEvents\' )
+			    	//$("div[id^=\'calendar\']").fullCalendar(\'removeEvents\');
+			     	$("div[id^=\'calendar\']").fullCalendar( \'refetchEvents\' )
 			   	//$("div[id^=\'calendar\']").fullCalendar(\'addEventSource\', response.events);         
-                //$("div[id^=\'calendar\']").fullCalendar(\'rerenderEvents\' );
+                		//$("div[id^=\'calendar\']").fullCalendar(\'rerenderEvents\' );
 			    },
 			    error: function(e){ 
 			    	alert(\'failed\' + e);
