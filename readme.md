@@ -15,4 +15,6 @@ I started this project with the food2fork API and two day before the dealine, th
 
 ##CRUD operations
 * Create: After performing a search, the result recipe boxes can be dragged on the calendar and the recipe will be saved in the database.
-* Read:
+* Read: After successfully loged in into the application, all your recipes in the database will be fetched displayed on the calendar.
+* Update: you can update yor recipe date by simply draging a recipe on the calendar to a different date.
+* Delete: by clicking on a recipe on the calendar, you will receive a confirmation message to delete the recipe.
