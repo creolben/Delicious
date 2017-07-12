@@ -2,14 +2,14 @@
 [![Latest Version Link]!](http://p4.cs15class.online)
 Delicious is an application to plan you meal by searching recipes online via fat secret API and save them in a calendar for later use by simply drag and drop and the application will save the recipe title, url and the date to the database. the application allows users to register for an account. 
 ##Plugins
-[![FullCalendar Link]!](https://fullcalendar.io) 
+* [![FullCalendar Link]!](https://fullcalendar.io) 
 ##packages
-[![laravel-fullcalendar Link]!](https://github.com/maddhatter/laravel-fullcalendar) 
+* [![laravel-fullcalendar Link]!](https://github.com/maddhatter/laravel-fullcalendar) 
 I extended the full calendar class from the plugin.
 ##API
-[![fatsecret API Link]!](https://platform.fatsecret.com/api/) 
+* [![fatsecret API Link]!](https://platform.fatsecret.com/api/) 
 ##screencast demo
-[![P4 Screencast Link]!](https://youtu.be/7AQC3nZXMV8) 
+* [![P4 Screencast Link]!](https://youtu.be/7AQC3nZXMV8) 
 ##Details
 I started this project with the food2fork API and two day before the dealine, they went dark. so I had to look for a new API and made chage to my scripts. i have features such as the shopping list wich i did not have enough time to complete.I decided to leave the seeders classes off because i received an error after a migrate refresh so i did not want to corrupt the production version.
 ##Planning Doc
